@@ -2,8 +2,15 @@ import './bootstrap';
 import {createApp} from 'vue';
 import App from './src/App.vue';
 import router from './src/router';
+import { createPinia } from 'pinia';
+import UIComponents from './src/components/UI'
 
-
-createApp(App)
+const app = createApp(App)
     .use(router)
-    .mount('#app')
+    .use(createPinia());
+
+UIComponents.forEach(component => {
+    app.component(component.name, component)
+})
+
+app.mount('#app');

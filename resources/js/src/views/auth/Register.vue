@@ -2,10 +2,10 @@
     <Guest>
         <div class="text-2xl">Register</div>
         <form class="flex flex-col">
-            <input class="m-2 bg-transparent border-b-2 border-b-black placeholder-black p-1 outline-0" placeholder="login">
-            <input class="m-2 bg-transparent border-b-2 border-b-black placeholder-black p-1 outline-0" placeholder="email">
-            <input class="m-2 bg-transparent border-b-2 border-b-black placeholder-black p-1 outline-0" placeholder="password">
-            <input class="m-2 bg-blue-300 py-2 rounded-2xl cursor-pointer" type="submit" value="Register">
+            <AuthInput placeholder="Login" />
+            <AuthInput placeholder="Email" />
+            <AuthInput placeholder="Password" />
+            <AuthButton value="Register" />
         </form>
     </Guest>
 </template>

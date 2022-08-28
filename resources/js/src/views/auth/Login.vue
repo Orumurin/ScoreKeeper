@@ -1,19 +1,39 @@
 <template>
     <Guest>
         <div class="text-2xl">Login</div>
-        <!--End Auth Navigation-->
-        <form class="flex flex-col">
-            <input class="m-2 bg-transparent border-b-2 border-b-black placeholder-black p-1 outline-0" placeholder="login">
-            <input class="m-2 bg-transparent border-b-2 border-b-black placeholder-black p-1 outline-0" placeholder="password">
-            <input class="m-2 bg-blue-300 py-2 rounded-2xl cursor-pointer" type="submit" value="Login">
+        <form class="flex flex-col" @submit.prevent="login">
+            <AuthInput
+                placeholder="Email"
+                v-model="userData.email"
+            />
+            <AuthInput
+                placeholder="Password"
+                type="password"
+                v-model="userData.password"
+            />
+
+            <AuthButton value="Login"/>
         </form>
     </Guest>
 </template>
 
 <script setup>
-    import Guest from "../../layouts/Guest.vue";
+    import Guest from "@/layouts/Guest.vue";
+    import { useUserStore } from "@/stores/UseUserStore";
+    import { reactive } from "vue";
+    import router from "@/router";
+
+    const { authUser } = useUserStore();
+    const userData = reactive({
+        email: '',
+        password: ''
+    })
+
+    const login = () => {
+        authUser(userData)
+            .then(() => {
+                router.push('/')
+            })
+    }
 </script>
 
-<style scoped>
-
-</style>
