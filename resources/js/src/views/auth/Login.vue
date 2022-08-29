@@ -4,36 +4,49 @@
         <form class="flex flex-col" @submit.prevent="login">
             <AuthInput
                 placeholder="Email"
-                v-model="userData.email"
+                v-model.trim="userState.email"
+                :validate="validate.email"
             />
             <AuthInput
                 placeholder="Password"
                 type="password"
-                v-model="userData.password"
+                v-model.trim="userState.password"
+                :validate="validate.password"
             />
 
-            <AuthButton value="Login"/>
+            <AuthButton :disabled="false" value="Login"/>
         </form>
     </Guest>
 </template>
 
 <script setup>
-    import Guest from "@/layouts/Guest.vue";
-    import { useUserStore } from "@/stores/UseUserStore";
-    import { reactive } from "vue";
-    import router from "@/router";
+    import Guest from '@/layouts/Guest.vue';
+    import { useVuelidate } from '@vuelidate/core'
+    import {email, minLength, required} from '@vuelidate/validators'
+    import {computed, reactive, toRefs} from "vue";
 
-    const { authUser } = useUserStore();
-    const userData = reactive({
+    const userState = reactive({
         email: '',
-        password: ''
-    })
+        password: '',
+    });
+    const rules = {
+        email: { required, email },
+        password: { required,  minLength: minLength(6) },
+    };
+    const validate = useVuelidate(rules, toRefs(userState));
+    const disabled = computed(() => validate.value.$invalid);
 
     const login = () => {
-        authUser(userData)
-            .then(() => {
-                router.push('/')
-            })
+        validate.value.$validate();
+
+        validate.value.password.$errors.forEach(err => {
+            console.log(err)
+        })
+
+        if(!validate.value.$error) {
+            console.log('Success')
+        }else {
+            console.log('Error')
+        }
     }
 </script>
-

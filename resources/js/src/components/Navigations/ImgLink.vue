@@ -7,7 +7,7 @@
 <script setup>
 import {RouterLink} from "vue-router/dist/vue-router"
 import {onMounted, ref} from "vue";
-import { getImg } from "@/helpers/ImgHelper"
+import { getImg } from "../../helpers/ImgHelper.js"
 
 const props = defineProps(['path']);
 const imgSrc = ref('');

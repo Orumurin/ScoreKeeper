@@ -2,7 +2,7 @@
     <Guest>
         <div class="text-2xl">Reset</div>
         <form class="flex flex-col">
-            <AuthInput placeholder="Email" />
+<!--            <AuthInput placeholder="Email" />-->
             <AuthButton value="Reset" />
         </form>
     </Guest>

@@ -1,7 +1,7 @@
 <template>
     <div class="main flex">
         <!--Start Logo-->
-        <div class="w-1/2 hidden md:block"></div>
+        <div class="md:w-1/2"></div>
         <!--End Logo-->
         <div class="w-full md:w-1/2 flex items-center justify-center text-center">
             <div class="w-96 bg-indigo-400/40 rounded-2xl py-8 px-4 m-4">
