@@ -37,7 +37,7 @@
     import {computed, reactive, toRefs} from "vue";
     import {email, minLength, required} from "@vuelidate/validators";
     import {useVuelidate} from "@vuelidate/core/dist/index.esm";
-    import {useUserStore} from "../../stores/UseUserStore";
+    import {useUserStore} from "../../stores/UserStore";
     import {pushToast} from "../../helpers/ToastHelper";
     import router from "../../router";
 

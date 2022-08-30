@@ -33,7 +33,7 @@
     import {email, minLength, required} from '@vuelidate/validators'
     import {computed, reactive, toRefs} from "vue";
     import {pushToast} from "../../helpers/ToastHelper.js";
-    import {useUserStore} from "../../stores/UseUserStore";
+    import {useUserStore} from "../../stores/UserStore";
     import router from "../../router";
 
     const { authUser } = useUserStore();

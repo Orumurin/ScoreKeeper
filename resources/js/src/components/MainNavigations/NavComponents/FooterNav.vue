@@ -15,7 +15,7 @@
 
 <script setup>
 
-    import {useUserStore} from "../../../stores/UseUserStore";
+    import {useUserStore} from "../../../stores/UserStore";
     import {pushToast} from "../../../helpers/ToastHelper";
     import router from "../../../router";
 

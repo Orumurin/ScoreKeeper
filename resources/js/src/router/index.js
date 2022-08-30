@@ -8,7 +8,7 @@ import Profile from "../views/main/Profile.vue";
 import GameSetting from "../views/main/GameSetting.vue";
 import LastGames from "../views/main/LastGames.vue";
 import Templates from "../views/main/Templates.vue";
-import {useUserStore} from "../stores/UseUserStore";
+import {useUserStore} from "../stores/UserStore";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),

@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-    import {useUserStore} from "../../../stores/UseUserStore";
+    import {useUserStore} from "@/stores/UserStore";
 
     const userState = useUserStore();
 </script>
