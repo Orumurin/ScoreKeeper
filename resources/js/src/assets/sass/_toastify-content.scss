@@ -1,0 +1,7 @@
+.toastify-content-error {
+    @apply py-5 pl-5 pr-14 rounded-lg shadow-xl bg-red-500;
+}
+
+.toastify-content-success {
+    @apply py-5 pl-5 pr-14 rounded-lg shadow-xl bg-blue-500;
+}

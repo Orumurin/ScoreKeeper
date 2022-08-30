@@ -14,8 +14,16 @@
                 :validate="validate.password"
             />
 
-            <AuthButton :disabled="false" value="Login"/>
+            <AuthButton :disabled="disabled" value="Login"/>
         </form>
+        <SuccessToast
+            title="Login success!"
+            modalId="success-login"
+        />
+        <ErrorToast
+            title="Login failed!"
+            modalId="failed-login"
+        />
     </Guest>
 </template>
 
@@ -24,7 +32,11 @@
     import { useVuelidate } from '@vuelidate/core'
     import {email, minLength, required} from '@vuelidate/validators'
     import {computed, reactive, toRefs} from "vue";
+    import {pushToast} from "../../helpers/ToastHelper.js";
+    import {useUserStore} from "../../stores/UseUserStore";
+    import router from "../../router";
 
+    const { authUser } = useUserStore();
     const userState = reactive({
         email: '',
         password: '',
@@ -39,14 +51,15 @@
     const login = () => {
         validate.value.$validate();
 
-        validate.value.password.$errors.forEach(err => {
-            console.log(err)
-        })
-
         if(!validate.value.$error) {
-            console.log('Success')
-        }else {
-            console.log('Error')
+            authUser(userState)
+                .then(() => {
+                    pushToast('success-login');
+                    router.push('/');
+                })
+                .catch(() => {
+                    pushToast('failed-login');
+                })
         }
     }
 </script>

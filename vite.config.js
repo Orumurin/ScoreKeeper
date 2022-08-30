@@ -6,7 +6,7 @@ export default defineConfig({
     plugins: [
         vue(),
         laravel([
-            'resources/css/app.css',
+            'resources/js/src/assets/sass/app.scss',
             'resources/js/app.js',
         ]),
     ],
