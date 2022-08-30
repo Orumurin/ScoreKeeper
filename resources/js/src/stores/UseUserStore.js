@@ -16,6 +16,16 @@ export const useUserStore = defineStore('user', {
                     localStorage.setItem('user', JSON.stringify(this.user))
                     localStorage.setItem('token', this.token)
                 })
+        },
+        registerUser(userData) {
+            return axios.post('/api/register', userData)
+                .then(response => {
+                    this.token = response.data.token
+                    this.user = response.data.user
+
+                    localStorage.setItem('user', JSON.stringify(this.user))
+                    localStorage.setItem('token', this.token)
+                })
         }
     }
 })
