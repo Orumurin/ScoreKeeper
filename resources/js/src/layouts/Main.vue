@@ -1,7 +1,7 @@
 <template>
     <div class="main flex">
         <MainNav />
-        <section class="w-4/5">
+        <section class="w-4/5 p-2">
             <slot></slot>
         </section>
     </div>

@@ -15,9 +15,9 @@
 
 <script setup>
 
-    import {useUserStore} from "../../stores/UseUserStore";
-    import {pushToast} from "../../helpers/ToastHelper";
-    import router from "../../router";
+    import {useUserStore} from "../../../stores/UseUserStore";
+    import {pushToast} from "../../../helpers/ToastHelper";
+    import router from "../../../router";
 
     const { logoutUser } = useUserStore();
     const exit = () => {

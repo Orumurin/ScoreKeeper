@@ -11,9 +11,9 @@
 </template>
 
 <script setup>
-    import HeadNav from './HeadNav.vue';
-    import BaseNav from './BaseNav.vue';
-    import FooterNav from './FooterNav.vue';
+    import HeadNav from './NavComponents/HeadNav.vue';
+    import BaseNav from './NavComponents/BaseNav.vue';
+    import FooterNav from './NavComponents/FooterNav.vue';
 
 </script>
 
