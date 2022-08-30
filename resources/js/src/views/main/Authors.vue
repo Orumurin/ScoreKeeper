@@ -1,8 +1,6 @@
 <template>
     <Main>
-        <div class="w-full h-full bg-white rounded-2xl text-center">
-            Authors
-        </div>
+        Authors
     </Main>
 </template>
 

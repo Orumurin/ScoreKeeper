@@ -1,7 +1,7 @@
 <template>
     <div>
         <button
-            class="bg-orange-400  py-1 px-24 my-4 rounded-xl"
+            class="bg-orange-400 w-64 py-1 my-4 rounded-xl text-center"
             @click="exit"
         >
             Exit
