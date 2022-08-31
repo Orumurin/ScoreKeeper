@@ -9,6 +9,7 @@ import GameSetting from "../views/main/GameSetting.vue";
 import LastGames from "../views/main/LastGames.vue";
 import Templates from "../views/main/Templates.vue";
 import {useUserStore} from "../stores/UserStore";
+import Game from "../views/main/Game.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -65,6 +66,12 @@ const router = createRouter({
             path: "/authors",
             name: "Authors",
             component: Authors,
+            meta: {requireAuth: true},
+        },
+        {
+            path: "/game",
+            name: "Game",
+            component: Game,
             meta: {requireAuth: true},
         },
     ]

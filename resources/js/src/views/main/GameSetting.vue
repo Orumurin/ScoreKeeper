@@ -41,6 +41,7 @@
     import {useVuelidate} from "@vuelidate/core";
     import {reactive, toRefs} from "vue";
     import {pushToast} from "../../helpers/ToastHelper";
+    import router from "../../router";
 
     const gameStore = useGameStore();
     const settings = reactive({
@@ -66,6 +67,7 @@
 
         if(playersValidate()) {
             pushToast('players-validate-success');
+            router.push('/game')
         }else {
             pushToast('players-validate-fail');
         }
