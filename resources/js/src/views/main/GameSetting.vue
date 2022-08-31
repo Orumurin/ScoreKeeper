@@ -19,9 +19,13 @@
                     Start
                 </button>
             </section>
+            <SuccessToast
+                title="Let's play!"
+                modalId="players-validate-success"
+            />
             <ErrorToast
                 title="Players name is empty!"
-                modalId="players-validate"
+                modalId="players-validate-fail"
             />
         </div>
     </Main>
@@ -61,17 +65,15 @@
         validate.value.$validate();
 
         if(playersValidate()) {
-            // go to the game!
+            pushToast('players-validate-success');
         }else {
-            pushToast('players-validate');
+            pushToast('players-validate-fail');
         }
     }
 
     const playersValidate = () => {
         const players = gameStore.getPlayers;
 
-        return !players.filter(player => {
-            return player.name === ''
-        }).length
+        return !players.filter(player => player.name === '').length
     }
 </script>
