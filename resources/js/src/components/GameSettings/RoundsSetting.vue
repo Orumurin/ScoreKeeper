@@ -1,11 +1,12 @@
 <template>
     <div class="m-2">
         <span class="">Rounds:</span>
-        <select class="ml-2">
+        <select @change="updateInput" class="ml-2">
             <option
                 v-for="num in (Array(15).keys())"
-                :key="num"
-                :value="num++"
+                :key="num++"
+                :selected="num === modelValue"
+                :value="num"
             >
                 {{ num++ }}
             </option>
@@ -13,9 +14,16 @@
     </div>
 </template>
 
-<script>
-export default {
-    name: "RoundsSetting"
+<script setup>
+defineProps({
+    modelValue: Number,
+})
+
+const emit = defineEmits(['update:modelValue']);
+
+const updateInput = event => {
+
+    emit('update:modelValue', +event.target.value)
 }
 </script>
 

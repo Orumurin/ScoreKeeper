@@ -5,7 +5,7 @@
     >
         <XCircleIcon class="text-theme-24" />
         <div class="ml-4 mr-4">
-            <div class="font-medium">Registration failed!</div>
+            <div class="font-medium">{{ title }}</div>
         </div>
     </div>
 </template>
